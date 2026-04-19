@@ -12,6 +12,22 @@ def encode_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
 
+def get_optimized_restoration_prompt(mask_prompt, img_caption, client):
+   prompt_text = f"""
+    Refine this into a high-fidelity image restoration prompt:
+    - Image Content: {img_caption}
+    - Mask Issue to Resolve: {mask_prompt}
+
+    Instruction: Generate a prompt that describes the image restoration task,
+    the type of mask deteriorating the image and
+    describing the image content in bullet points.
+    """
+   response = client.responses.create(
+        model="gpt-5-nano",
+        input = prompt_text
+    )
+   return response.output_text
+
 def generate_gpt(img_path, final_prompt, client, output_folder):
     # Path to your art/painting image
     # base64_image = encode_image(img_path)

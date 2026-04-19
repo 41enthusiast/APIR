@@ -3,4 +3,5 @@ google-auth-oauthlib
 qwen-vl-utils
 openai
 google-genai
+transformers
 git+https://huggingface.co/mridula42/UNetMasked2Mask
