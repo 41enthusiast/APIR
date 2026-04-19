@@ -1,0 +1,6 @@
+python-dotenv
+google-auth-oauthlib
+qwen-vl-utils
+openai
+google-genai
+git+https://huggingface.co/mridula42/UNetMasked2Mask
